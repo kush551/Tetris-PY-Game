@@ -1,5 +1,6 @@
 import pygame, sys
 from grid import Grid
+from blocks import *
 
 pygame.init()
 purple = (128,0,128)
@@ -11,9 +12,8 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-game_grid.grid[0][0] = 1
-game_grid.grid[7][1] = 2
-game_grid.grid[6][2] = 3    
+block = OBlock() 
+
 
 game_grid.print_grid()
 
@@ -25,5 +25,8 @@ while True:
 
     screen.fill(purple)
     game_grid.draw(screen)
+    block.draw(screen)
+
+
     pygame.display.update()
     clock.tick(144)
