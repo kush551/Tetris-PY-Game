@@ -15,8 +15,7 @@ class Game:
             self.blocks = [LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(),ZBlock()]
             random.shuffle(self.blocks)
         return random.choice(self.blocks)
-        self.blocks.remove
-        return block
+        
     
     def move_left(self):
         self.current_block.move(0, -1)
@@ -40,6 +39,7 @@ class Game:
             self.grid.grid[tile.row][tile.column] = self.current_block.id
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
+        self.grid.clear_full_rows()
 
     def block_fits(self):
         tiles = self.current_block.get_cell_positions()
