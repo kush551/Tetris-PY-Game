@@ -51,10 +51,15 @@ class Grid:
             elif completed > 0:
                 self.move_down_rows(row, completed)
         return completed
+    
+    def reset(self):
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
+                self.grid[row][column] = 0
 
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
                 cell_value = self.grid[row][column]
-                cell_rect = pygame.Rect(column * self.cell_size +1, row * self.cell_size +1, self.cell_size -1, self.cell_size -1)
+                cell_rect = pygame.Rect(column * self.cell_size + 11, row * self.cell_size +1, self.cell_size -1, self.cell_size -1)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect)
